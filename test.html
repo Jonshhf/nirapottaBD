@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="styles.css" rel="stylesheet">
+  <style>
+    /* General Body Styling */
+    body {
+      background-color: white;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header Styling */
+    .header {
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .logo-img {
+      width: 45px;
+      object-fit: cover;
+      border-radius: 0.25rem;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: black;
+    }
+
+    .header-right {
+      gap: 1rem;
+    }
+
+    .date-form {
+      width: 150px;
+    }
+
+    .date-form input {
+      font-size: 1rem;
+      border-radius: 0.25rem;
+      background-color: #ffffff;
+    }
+
+    .search-form input[type="search"] {
+      border-radius: 0.25rem 0 0 0.25rem;
+    }
+
+    .search-form button {
+      border-radius: 0 0.25rem 0.25rem 0;
+    }
+
+    /* Main Content Styling */
+    .news-title {
+      font-size: 25px;
+      margin-bottom: 1rem;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    .news-description {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+}
+
+.sidebar-title {
+  font-size: 15px;
+  margin-bottom: 1rem;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(33.333% - 0.67rem); /* 3 images per row with gap adjustment */
+}
+
+.image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10%;
+  filter: grayscale(50%) opacity(100%);
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 200;
+  margin: 0.5rem 0 0;
+}
+
+.title {
+  font-size: 10px;
+  color: black;
+}
+
+    /* Footer Styling */
+    footer {
+      background-color: #343a40;
+      color: #ffffff;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 992px) {
+      .news-title {
+        font-size: 20px;
+      }
+
+      .news-description {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .news-title {
+        font-size: 20px;
+      }
+
+      .news-description {
+        font-size: 0.875rem;
+      }
+    }
+
+    .form-control:disabled {
+      background-color: white !important;
+      border: #ffffff !important;
+      opacity: 70%;
+      font-size: 12px;
+    }
+
+    span {
+      color: black;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header bg-white border-bottom">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <a href="#" class="logo d-flex align-items-center">
+        <img src="img/favicon.png" alt="Nirapotta News Logo" class="logo-img">
+        <span class="logo-text ms-2">𝔑𝔦𝔯𝔞𝔭𝔬𝔱𝔱𝔞 𝔑𝔢𝔴𝔰</span>
+      </a>
+      <div class="header-right d-flex align-items-center">
+        <form class="date-form me-3">
+          <input type="text" class="form-control" id="date" disabled>
+        </form>
+      </div>
+    </div>
+  </header>
+  
+  <p class="ms-3 mt-3">প্রতিদিনের নিউজ আপডেট</p>
+  <hr style="color: red;">
+  <p class="ms-3" style="color: red; opacity: 50%;"><i class="fa-solid fa-map-location-dot" style="color: black;"></i>&nbsp;&nbsp;বীরগঞ্জ, দিনাজপুর 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span><i class="fa-regular fa-clock"></i> ২৮ আগস্ট ২০২৪</span>
+  </p>
+  
+  <!-- Main Content -->
+  <main class="container my-5">
+    <div class="row">
+      <!-- Main Article -->
+      <div class="col-lg-8">
+        <div class="news-content mb-4">
+          <h1 class="news-title">সাধারণ শিক্ষাথীদের উদ্যোগে বীরগঞ্জে এই প্রথম চালু হতে চলেছে ডিজিটাল নিরাপত্তা প্লার্টফর্ম NirapottaBD ওয়েবসাইট</h1>
+          <img src="textimage/barner.jpg" alt="News Image" class="img-fluid mb-3 rounded">
+          <p class="news-description">"NirapottaBD" হলো সাধারণ & নিরপেক্ষ শিক্ষাথীদের উদ্যোগে তৈরী একটি ডিজিটাল নিরাপত্তা প্লার্টফর্ম। সকলের সার্বিক নিরাপত্তা নিশ্চিত করাই আমাদের মূল লক্ষ্য। আপনার নিরাপত্তা আমাদের দায়িত্ব !
+          </p>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="col-lg-4">
+        <div class="sidebar bg-light p-3 rounded">
+          <h3 class="sidebar-title">NirapottaBD প্রজেক্টের উদ্যোগটা শিক্ষার্থীবৃন্দ </h3>
+          <div class="image-grid">
+            <div class="image-item">
+              <img src="textimage/imge pranto.jpg" alt="Person 1" class="image">
+              <h4 class="name">Pranto Roy</h4>
+              <p class="title">CEO & Founder <br> Pixel Innovations</p>
+            </div>
+            <div class="image-item">
+              <img src="textimage/diya.jpg" alt="Person 3" class="image">
+              <h4 class="name">Diya Hossain</h4>
+              <p class="title">Managing Director <br> Pixel Innovations</p>
+            </div>
+            <div class="image-item">
+              <img src="textimage/utsho.jpg" alt="Person 2" class="image">
+              <h4 class="name">Utsho Singho</h4>
+              <p class="title">CO Founder <br> Pixel Innovations</p>
+            </div>
+            <div class="image-item">
+              <img src="textimage/thun.jpg" alt="Person 4" class="image">
+              <h4 class="name">Tuhin Hasan</h4>
+              <p class="title">volunteer <br> NirapottaBD</p>
+            </div>
+            <div class="image-item">
+              <img src="textimage/atik.jpg" alt="Person 5" class="image">
+              <h4 class="name">Atik Islam</h4>
+              <p class="title">volunteer <br>NirapottaBD</p>
+            </div>
+            <div class="image-item">
+              <img src="textimage/sovon.jpg" alt="Person 6" class="image">
+              <h4 class="name">Sovon Islam</h4>
+              <p class="title">Markeing Director <br>NirapottaBD
+              </p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      
+      <p style="margin-top: 5%;">         
+        জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো বেঁধে।
+   
+        মানুষ আসবার পূর্বেই জীবসৃষ্টিযজ্ঞে প্রকৃতির ভূরিব্যয়ের পালা শেষ হয়ে এসেছে। বিপুল মাংস, কঠিন বর্ম, প্রকাণ্ড লেজ নিয়ে জলে স্থলে পৃথুল দেহের যে অমিতাচার প্রবল হয়ে উঠেছিল তাতে ধরিত্রীকে দিলে ক্লান্ত করে। প্রমাণ হল আতিশয্যের পরাভব অনিবার্য। পরীক্ষায় এটাও স্থির হয়ে গেল যে, প্রশ্রয়ের পরিমাণ যত বেশি হয় দুর্বলতার বোঝাও তত দুর্বহ হয়ে ওঠে। নূতন পর্বে প্রকৃতি যথাসম্ভব মানুষের বরাদ্দ কম করে দিয়ে নিজে রইল নেপথ্যে।
+        
+        মানুষকে দেখতে হল খুব ছোটো, কিন্তু সেটা একটা কৌশল মাত্র। এবারকার জীবযাত্রার পালায় বিপুলতাকে করা হল বহুলতায় পরিণত। মহাকায় জন্তু ছিল প্রকাণ্ড একলা, মানুষ হল দূরপ্রসারিত অনেক।</p>
+      
+      
+      
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p>&copy; 2024 NewsPage. All rights reserved. | Designed by Pranto</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Function to convert Gregorian date to Bangla date
+    function toBanglaDate(dateString) {
+      const banglaMonths = [
+        'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন',
+        'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'
+      ];
+      const banglaDays = [
+        '০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'
+      ];
+  
+      const [year, month, day] = dateString.split('-');
+  
+      // Convert numbers to Bangla digits
+      const convertToBanglaDigits = (number) => number.replace(/\d/g, d => banglaDays[d]);
+  
+      return `${convertToBanglaDigits(day)} ${banglaMonths[parseInt(month) - 1]} ${convertToBanglaDigits(year)}`;
+    }
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateInput = document.getElementById('date');
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const day = String(today.getDate()).padStart(2, '0');
+  
+      const dateString = `${year}-${month}-${day}`;
+      dateInput.value = toBanglaDate(dateString);
+    });
+  </script>
+  
+</body>
+</html>
