@@ -575,7 +575,7 @@ $conn->close();
         <div class="app-info">
             <h2 class="app-name">NirapottaBD Android App</h2>
             <p class="app-description">আপনার নিরাপত্তা, আমাদের দায়িত্ব</p>
-            <a href="#" class="download-btn">
+            <a href="#" class="download-btn" onclick="Downloadapps()">
     <i class="fas fa-download"></i><p1> অ্যাপসটি ডাউনলোড করুন </p1>
             </a>
         </div>
@@ -632,6 +632,11 @@ $conn->close();
             delay: 10,
             time: 1000
         });
+    
+        function Downloadapps() {
+    alert("আমাদের এন্ড্রোয়েড এ্যাপস তৈরীর কার্যক্রম চলমান রয়েছে, খুব দ্রুতই প্রকাশিত হবে!");
+}
+
     </script>
 		<!--/ End Fun-facts -->
 		

@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch complaints
-$sql = "SELECT id, location, description, created_at, image_path FROM complaints ORDER BY created_at DESC";
+$sql = "SELECT id, location, phone, name, description, created_at, image_path FROM complaints ORDER BY created_at DESC";
 $result = $conn->query($sql);
 
 if (!$result) {
@@ -122,21 +122,25 @@ if (!$result) {
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     $id = htmlspecialchars($row["id"]);
+                    $name = htmlspecialchars($row["name"]);
+                    $phone = htmlspecialchars($row["phone"]);
                     $location = htmlspecialchars($row["location"]);
                     $description = htmlspecialchars($row["description"]);
+                    $image_path = htmlspecialchars($row["image_path"]);
                     $created_at = date("F j, Y, g:i a", strtotime($row["created_at"]));
             ?>
                 <div class="complaint-card">
                     <div class="complaint-id">#<?php echo $id; ?> Report</div>
                     <br><br>
                     <div class="complaint-content">
-                        <div class="complaint-location"><?php echo $location; ?></div>
+                    <div class="complaint"><?php echo "Name: " . $name; ?></div>
+                        <div class="complaint"><?php echo "Number: " .  $phone; ?></div>
+                        <div class="complaint-location"><?php echo "Location: " . $location; ?></div>
                         <div class="complaint-description"><?php echo $description; ?></div>
                         <div class="complaint-date"><?php echo $created_at; ?></div>
                         
                     </div>
                 </div>
-                
             <?php
                 }
             } else {
